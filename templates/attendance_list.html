@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #f8f9fa;
+        }
+        .header {
+            padding: 10px 0;
+            background-color: #2a5db0;
+            color: white;
+        }
+        .header h1, .header h2 {
+            margin: 5px;
+        }
+        .separator {
+            width: 80%;
+            margin: 10px auto;
+            height: 2px;
+            background-color: #6a5acd;
+        }
+        .date-container {
+            margin: 20px auto;
+            font-size: 16px;
+        }
+        input[type="date"] {
+            padding: 5px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            text-align: left;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #2a5db0;
+            color: white;
+            text-transform: uppercase;
+        }
+        tr:nth-child(odd) {
+            background-color: #e3f2fd; 
+        }
+        tr:nth-child(even) {
+            background-color: #f8bbd0;
+        }
+        input[type="checkbox"] {
+            transform: scale(1.2);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>B.Tech AIDS - 3rd Year</h1>
+    </div>
+    <div class="separator"></div>
+    <h2>CS670 - Artificial Intelligence</h2>
+
+    <div class="date-container">
+        <label for="attendance-date"><strong>Select Date:</strong></label>
+        <input type="date" id="attendance-date" name="attendance-date">
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Roll No</th>
+                <th>Student List</th>
+                <th>Attendance</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>CSB21001</td>
+                <td>EMILY JOHNSON</td>
+                <td><input type="checkbox" checked></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>CSB21002</td>
+                <td>MICHAEL SMITH</td>
+                <td><input type="checkbox"></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>CSB21003</td>
+                <td>SARAH MARTINEZ</td>
+                <td><input type="checkbox" checked></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>CSB21004</td>
+                <td>DAVID BROWN</td>
+                <td><input type="checkbox" checked></td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>CSB21005</td>
+                <td>OLIVIA WILLIAMS</td>
+                <td><input type="checkbox"></td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>CSB21006</td>
+                <td>CHRISTOPHER DAVIS</td>
+                <td><input type="checkbox" checked></td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>CSB21007</td>
+                <td>SOPHIA WILSON</td>
+                <td><input type="checkbox"></td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>CSB21008</td>
+                <td>ETHAN ANDERSON</td>
+                <td><input type="checkbox"></td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>CSB21009</td>
+                <td>EMMA MILLER</td>
+                <td><input type="checkbox" checked></td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>CSB21010</td>
+                <td>JAMES JONES</td>
+                <td><input type="checkbox"></td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>CSB21012</td>
+                <td>DANIEL THOMAS</td>
+                <td><input type="checkbox"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

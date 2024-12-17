@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #74ebd5, #ACB6E5);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-top: 20px;
+            color: #6a11cb;
+            text-shadow: 1px 1px 1px #ddd;
+        }
+
+        .session-container {
+            font-size: 1.2rem;
+            margin: 15px 0;
+            color: #333;
+        }
+
+        .dropdown-container {
+            margin: 20px 0;
+            font-size: 1.2rem;
+        }
+
+        select {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+            margin-left: 10px;
+        }
+        .subject-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .subject {
+            background-color: #FF66B2;
+            color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            text-align: center;
+            width: 80px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <h1>BRANCH: ARIFICIAL INTELLIGENCE AND DATA SCIENCE</h1>
+
+    <div class="dropdown-container">
+        Select Semester:
+        <select id="semester-dropdown" onchange="updateSubjects()">
+            <option value="" disabled selected>Select</option>
+            <option value="Spring">2024-Odd-Semester</option>
+            <option value="Summer">2025-Even-Semester</option>
+        </select>
+    </div>
+
+    <div class="dropdown-container">
+        Select Class:
+        <select id="class-dropdown" onchange="updateSubjects()">
+            <option value="" disabled selected>Select</option>
+            <option value="D6ADA">D6ADA</option>
+            <option value="D6ADB">D6ADB</option>
+            <option value="D11ADA">D11ADA</option>
+            <option value="D11ADB">D11ADB</option>
+        </select>
+    </div>
+
+    <div id="subject-container" class="subject-container"></div>
+
+    <script>
+        function displaySession() {
+            const year = new Date().getFullYear();
+            const month = new Date().getMonth();
+            let season;
+
+            if (month >= 0 && month <= 4) season = "Spring";
+            else if (month >= 5 && month <= 8) season = "Summer";
+            else season = "Autumn";
+
+            const semester = "Semester";
+            document.getElementById("session-display").innerHTML = `<strong>${year}-${season}-${semester}</strong>`;
+        }
+
+        const subjects = {
+            Spring: {
+                D6ADA: ["CO321", "CO215", "CS670"],
+                D6ADB: ["CO322", "CO216", "CS671"],
+                D11ADA: ["CO421", "CO315", "CS770"],
+                D11ADB: ["CO422", "CO316", "CS771"]
+            },
+            Summer: {
+                D6ADA: ["CO301", "CO202", "CS600"],
+                D6ADB: ["CO302", "CO203", "CS601"],
+                D11ADA: ["CO401", "CO305", "CS700"],
+                D11ADB: ["CO402", "CO306", "CS701"]
+            },
+            Autumn: {
+                D6ADA: ["CO351", "CO210", "CS630"],
+                D6ADB: ["CO352", "CO211", "CS631"],
+                D11ADA: ["CO451", "CO310", "CS730"],
+                D11ADB: ["CO452", "CO311", "CS731"]
+            }
+        };
+        function updateSubjects() {
+            const semesterSelected = document.getElementById("semester-dropdown").value;
+            const classSelected = document.getElementById("class-dropdown").value;
+            const subjectContainer = document.getElementById("subject-container");
+
+            subjectContainer.innerHTML = ""; 
+            if (semesterSelected && classSelected && subjects[semesterSelected][classSelected]) {
+                subjects[semesterSelected][classSelected].forEach(subject => {
+                    const subjectBox = document.createElement("div");
+                    subjectBox.className = "subject";
+                    subjectBox.textContent = subject;
+                    subjectContainer.appendChild(subjectBox);
+                });
+            }
+        }
+
+        displaySession();
+    </script>
+</body>
+</html>
